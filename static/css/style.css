@@ -1,0 +1,92 @@
+/* styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #ffffff;
+    background: #2d2d2d;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background: linear-gradient(145deg, #1e1e1e, #3a3a3a);
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    max-width: 500px;
+}
+
+.header {
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, #ff023d, #0072ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+}
+
+.display {
+    background: #1a1a1a;
+    border: 2px solid #333;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#display-screen {
+    font-size: 2rem;
+    color: #ffffff;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: end;
+}
+
+.controls {
+    margin-top: 10px;
+}
+
+.icon-button {
+    background: linear-gradient(45deg, #ff023d, #0072ff);
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.icon-button:hover {
+    transform: scale(1.1);
+}
+
+.instructions {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #cccccc;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #aaaaaa;
+}
+
+.mic-icon{
+    height: 50px;
+    width: auto;
+}
+
+.support-operations{
+    font-size: 12px;
+    font-weight: normal;
+    color: #cccccc;
+    line-height: 20px;
+}
