@@ -2,6 +2,9 @@ from flask import Flask, render_template, request, jsonify
 import os
 import model
 from utils import extract_features
+import logging
+
+logging.basicConfig(level=logging.ERROR)
 
 app = Flask(__name__)
 UPLOAD_FOLDER = 'uploads'
@@ -30,7 +33,8 @@ def train_model():
         model.train_model(file_paths)
         return jsonify({'message': 'Model trained successfully!'})
     except Exception as e:
-        return jsonify({'error': str(e)}), 500
+        logging.error("Exception occurred", exc_info=True)
+        return jsonify({'error': 'An internal error has occurred!'}), 500
 
 @app.route('/process-command', methods=['POST'])
 def process_command():
@@ -46,7 +50,8 @@ def process_command():
         result = model.execute_command(predicted_command)
         return jsonify({'result': result})
     except Exception as e:
-        return jsonify({'error': str(e)}), 500
+        logging.error("Exception occurred", exc_info=True)
+        return jsonify({'error': 'An internal error has occurred!'}), 500
 
 if __name__ == '__main__':
     debug_mode = os.getenv('FLASK_DEBUG', 'False').lower() in ['true', '1', 't']
