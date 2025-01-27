@@ -20,7 +20,9 @@ def train_model():
         # Save uploaded files and prepare data
         file_paths = []
         for i, file in enumerate(audio_files):
-            save_path = os.path.join(UPLOAD_FOLDER, file.filename)
+            save_path = os.path.normpath(os.path.join(UPLOAD_FOLDER, file.filename))
+            if not save_path.startswith(os.path.abspath(UPLOAD_FOLDER)):
+                raise Exception("Invalid file path")
             file.save(save_path)
             file_paths.append((save_path, labels[i]))
 
@@ -34,7 +36,9 @@ def train_model():
 def process_command():
     try:
         audio = request.files['audio']
-        save_path = os.path.join(UPLOAD_FOLDER, audio.filename)
+        save_path = os.path.normpath(os.path.join(UPLOAD_FOLDER, audio.filename))
+        if not save_path.startswith(os.path.abspath(UPLOAD_FOLDER)):
+            raise Exception("Invalid file path")
         audio.save(save_path)
 
         # Perform inference
